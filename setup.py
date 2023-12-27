@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='rainbow_tqdm',
-    version='0.1.0',
+    version='0.1.2',
     author='Benjamin Gorlick',
     author_email='ben@aialignment.ai',
     description='A rainbow tqdm progress bar with smooth transitions',
@@ -17,6 +17,6 @@ setup(
     ],
     python_requires='>=3.6',
     install_requires=[
-        'tqdm>=4.50.0',
+        'tqdm>=4.22.0',
     ],
 )

@@ -10,24 +10,104 @@ The key to achieving a smooth transition in the progress bar lies in the approxi
 ## Gradient Generation Using RGB Matrix
 The gradient generation process is a crucial aspect of Rainbow TQDM. It involves creating a seamless gradient between two specified RGB values. By interpolating these values over a set number of steps, we form a matrix of RGB values. Each step in this matrix smoothly transitions from one color to the next, contributing to the overall rainbow effect seen in the progress bar.
 
+## Installation
+
+### Installing from PyPI
+
+You can easily install RainbowTQDM directly from PyPI using pip:
+
+```bash
+pip install rainbow_tqdm
+```
+
+This is the simplest method and will allow you to use RainbowTQDM in any of your Python projects.
+
+### Installing from Source
+
+Alternatively, you can install RainbowTQDM from the source. First, clone the repository:
+
+```bash
+git clone https://github.com/bgorlick/rainbow_tqdm.git
+```
+
+Navigate to the cloned directory:
+
+```bash
+cd rainbow_tqdm
+```
+
+If you want to build the package, you can use setuptools. Make sure you have `setuptools` and `wheel` installed:
+
+```bash
+pip install setuptools wheel
+```
+
+Then, build the package:
+
+```bash
+python setup.py sdist bdist_wheel
+```
+
+This will generate distribution files in the `dist/` directory. You can then install the package using pip:
+
+```bash
+pip install dist/rainbow_tqdm-<version>.tar.gz  # Replace <version> with the actual version number
+```
+
+Now, RainbowTQDM should be installed and ready to use in your projects.
+
 ## Usage
 
-Integrating RainbowTQDM into your projects is straightforward. Simply import `rainbow_tqdm` in your script, and the progress bars will automatically display with the rainbow effect, transforming your console's visual experience with minimal effort.
+Integrating RainbowTQDM into your projects is straightforward, and you have three ways to use it depending on if you are using tqdm for the first time in your project or integrating it into a project that already uses tqdm. In every case, it's simple and easy to setup and use:
 
-If your script already uses `tqdm`, you just need to import `rainbow_tqdm` *above* the existing `from tqdm import tqdm` import. The script should continue to work without needing to remove your old imports, but now with enhanced progress bars.
+### 1. Import `rainbow_tqdm` and Use as Regular `tqdm`
 
-## Example
+Simply import `rainbow_tqdm`, and it will automatically apply the rainbow effect to `tqdm` progress bars. You can then use `tqdm` as you normally would.
+
+#### Example:
 
 ```python
-import rainbow_tqdm  # Import rainbow_tqdm to enable the effect
+import rainbow_tqdm  # Enables the rainbow effect for tqdm
+from tqdm import tqdm  # Import tqdm as usual
 import time
 
-# Running this loop will display a colorful, smoothly transitioning progress bar
+# Standard tqdm loop with RainbowTQDM effect
+for i in tqdm(range(100)):
+    time.sleep(0.1)  # Simulate work
+```
+
+### 2. Use `rainbow_tqdm.tqdm` Directly
+
+For explicit usage or compatibility concerns, you can use `rainbow_tqdm.tqdm` directly.
+
+#### Example:
+
+```python
+import rainbow_tqdm  # Import rainbow_tqdm
+import time
+
+# Use rainbow_tqdm.tqdm directly
 for i in rainbow_tqdm.tqdm(range(100)):
     time.sleep(0.1)  # Simulate work
-
-# You should see a progress bar that transitions through a spectrum of colors as it progresses
 ```
+
+### 3. Import `rainbow_tqdm` Above Existing `tqdm` Imports
+
+If your script already uses `tqdm`, place `import rainbow_tqdm` above your existing `tqdm` import. This ensures that your existing `tqdm` calls will now use the enhanced RainbowTQDM progress bars without any additional changes to your code.
+
+#### Example:
+
+```python
+import rainbow_tqdm  # Import rainbow_tqdm above tqdm
+from tqdm import tqdm  # Existing tqdm import
+import time
+
+# Existing tqdm usage now with RainbowTQDM effect
+for i in tqdm(range(100)):
+    time.sleep(0.1)  # Simulate work
+```
+
+Choose the method that best suits your project's structure and requirements. All methods provide the same enhanced, colorful progress bar experience with RainbowTQDM.
 
 ### Test Scripts
 
@@ -65,8 +145,10 @@ RainbowTQDM exemplifies how programming can be a creative and enjoyable activity
 
 Benjamin Gorlick is a computer science researcher, entrepreneur, and musician with a passion for AI, machine learning, big data, distributed computing, cryptography, cryptocurrency, and all alound science and technology nerdery. 
 
-If you're interested in contacting via ben@aialignment.ai or ben@digitalsiddhartha.ai
+If you're interested in contacting the author, you can email ben[at]aialignment[dot]ai or ben[at]digitalsiddhartha[dot]ai
 
 Enjoy more colorful progress bars with RainbowTQDM! 🌈
 
+## License
 
+RainbowTQDM is open source software [licensed as MIT](LICENSE.txt).

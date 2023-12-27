@@ -78,3 +78,4 @@ def apply_override_tqdm():
     sys.modules['tqdm'].tqdm = RainbowTQDM
 
 apply_override_tqdm()
+from tqdm import tqdm
