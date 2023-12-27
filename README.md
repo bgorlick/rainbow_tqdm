@@ -62,7 +62,15 @@ Integrating RainbowTQDM into your projects is straightforward, and you have thre
 
 ### 1. Import `rainbow_tqdm` and Use as Regular `tqdm`
 
-Simply import `rainbow_tqdm`, and it will automatically apply the rainbow effect to `tqdm` progress bars. You can then use `tqdm` as you normally would.
+Suggested simplest way is the following:
+
+```python
+from rainbow_tqdm import tqdm
+```
+
+You can also experiment with a simple `import rainbow_tqdm`. 
+
+You can then use `tqdm` as you normally would.
 
 #### Example:
 
@@ -76,7 +84,18 @@ for i in tqdm(range(100)):
     time.sleep(0.1)  # Simulate work
 ```
 
-### 2. Use `rainbow_tqdm.tqdm` Directly
+### 2.
+Import `rainbow_tqdm` at the top of your script in its own namespace:
+
+```python
+from rainbow_tqdm import RainbowTQDM as tqdm`
+````
+
+
+
+
+
+ Use `rainbow_tqdm.tqdm` Directly
 
 For explicit usage or compatibility concerns, you can use `rainbow_tqdm.tqdm` directly.
 
